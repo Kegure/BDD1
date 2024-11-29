@@ -38,9 +38,26 @@ public class UserService {
         }
         return null;
     }
+    public User findByEmailOrUsername(String email, String username) {
+        return userRepository.findByEmailOrUsername(email, username);
+    }
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+
+
+    public void registerUser(User user) {
+        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
+            throw new IllegalArgumentException("Email already in use.");
+        }
+
+        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
+            throw new IllegalArgumentException("Username already in use.");
+        }
+
+        userRepository.save(user);
+    }
+
 }
 

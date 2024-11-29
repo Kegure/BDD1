@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d74fe6d6.css",
+    "main.js": "/static/js/main.352d55ff.js",
+    "static/js/453.e56574c5.chunk.js": "/static/js/453.e56574c5.chunk.js",
+    "static/media/SearchU_Logo.jpg": "/static/media/SearchU_Logo.a1fed068281b39d00faf.jpg",
+    "index.html": "/index.html",
+    "main.d74fe6d6.css.map": "/static/css/main.d74fe6d6.css.map",
+    "main.352d55ff.js.map": "/static/js/main.352d55ff.js.map",
+    "453.e56574c5.chunk.js.map": "/static/js/453.e56574c5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d74fe6d6.css",
+    "static/js/main.352d55ff.js"
+  ]
+}

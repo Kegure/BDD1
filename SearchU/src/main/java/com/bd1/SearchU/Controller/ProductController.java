@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "http://localhost:3000") // Permite requisições do React
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProductController {
 
     @Autowired
@@ -22,12 +22,6 @@ public class ProductController {
     @GetMapping
     public List<Product> getAllProducts() {
         return productService.listProducts();
-    }
-
-    @GetMapping("/search")
-    public ResponseEntity<List<Product>> searchProducts(@RequestParam String query) {
-        List<Product> products = productService.searchProducts(query);
-        return ResponseEntity.ok(products);
     }
 
 
@@ -53,10 +47,19 @@ public class ProductController {
         return productService.saveProduct(product);
     }
 
-
+    @GetMapping("/filter")
+    public List<Product> filterProductsByCategory(@RequestParam String category) {
+        return productService.filterByCategory(category);
+    }
 
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
+    }
+
+
+    @GetMapping("/search")
+    public List<Product> searchProducts(@RequestParam("query") String query) {
+        return productService.searchProducts(query);
     }
 }

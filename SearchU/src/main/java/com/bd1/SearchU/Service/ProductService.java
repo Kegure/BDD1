@@ -14,10 +14,6 @@ public class ProductService {
     private ProductRepository ProductRepository;
 
 
-    public List<Product> searchProducts(String query) {
-        return ProductRepository.findByNameContainingIgnoreCase(query);
-    }
-
     public List<Product> listProducts() {
         return ProductRepository.findAll();
     }
@@ -30,7 +26,24 @@ public class ProductService {
         return ProductRepository.findById(id).orElse(null);
     }
 
+    public List<Product> getAllProducts() {
+        return ProductRepository.findAll();
+    }
+    public List<Product> searchByName(String name) {
+        return ProductRepository.findByNameContainingIgnoreCase(name);
+    }
+
+    public List<Product> filterByCategory(String category) {
+        return ProductRepository.findByCategoryIgnoreCase(category);
+    }
     public void deleteProduct(Long id) {
         ProductRepository.deleteById(id);
     }
+
+
+
+    public List<Product> searchProducts(String query) {
+            return ProductRepository.searchProducts(query);
+    }
+
 }
